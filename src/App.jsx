@@ -77,10 +77,10 @@ function BagIcon() {
 }
 
 function App() {
-  const [products, setProducts] = useStoredState('maison-products', initialProducts);
-  const [cart, setCart] = useStoredState('maison-cart', []);
-  const [user, setUser] = useStoredState('maison-user', null);
-  const [customerData, setCustomerData] = useStoredState('maison-customers', {});
+  const [products, setProducts] = useStoredState('lizona-products', initialProducts);
+  const [cart, setCart] = useStoredState('lizona-cart', []);
+  const [user, setUser] = useStoredState('lizona-user', null);
+  const [customerData, setCustomerData] = useStoredState('lizona-customers', {});
   const [activeModal, setActiveModal] = useState('');
   const [activeCategory, setActiveCategory] = useState('All pieces');
   const [notice, setNotice] = useState('');
@@ -127,7 +127,7 @@ function App() {
   function signIn(formData) {
     const email = formData.get('email').toString().trim().toLowerCase();
     const name = formData.get('name')?.toString().trim() || email.split('@')[0];
-    const role = email.toLowerCase() === 'admin@maisonreve.in' ? 'admin' : 'customer';
+    const role = email.toLowerCase() === 'admin@lizona-boutique.com' ? 'admin' : 'customer';
     const nextUser = { name, email, role, phone: formData.get('phone')?.toString().trim() || '' };
     setUser(nextUser);
     setActiveModal('');
@@ -205,8 +205,8 @@ function App() {
     <div className="site-shell">
       <div className="announcement">A little something lovely — complimentary shipping on orders over ₹3,500</div>
       <header className="site-header">
-        <a className="wordmark" href="#home" aria-label="Maison Rêve home">
-          <span>MAISON RÊVE</span>
+        <a className="wordmark" href="#home" aria-label="Lizona Boutique home">
+          <span>LIZONA BOUTIQUE</span>
           <small>MADE TO FEEL LIKE YOU</small>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
@@ -340,9 +340,9 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <a className="wordmark footer-wordmark" href="#home"><span>MAISON RÊVE</span><small>MADE TO FEEL LIKE YOU</small></a>
+        <a className="wordmark footer-wordmark" href="#home"><span>LIZONA BOUTIQUE</span><small>MADE TO FEEL LIKE YOU</small></a>
         <span>Made slowly, with love in India.</span>
-        <span>© 2026 Maison Rêve</span>
+        <span>© 2026 Lizona Boutique</span>
       </footer>
 
       {notice && <div className="toast" role="status">{notice}</div>}
@@ -386,7 +386,7 @@ function App() {
               <button className="auth-switch" onClick={() => setAuthMode(authMode === 'register' ? 'login' : 'register')}>
                 {authMode === 'register' ? 'Already have an account? Sign in' : 'New here? Create an account'}
               </button>
-              <p className="demo-hint">Studio access? Sign in with <strong>admin@maisonreve.in</strong></p>
+              <p className="demo-hint">Studio access? Sign in with <strong>admin@lizona-boutique.com</strong></p>
             </div>
           )}
           {activeModal === 'measurements' && (
